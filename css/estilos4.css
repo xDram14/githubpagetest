@@ -1,0 +1,82 @@
+/* AQUI LE DOY A LA PAGINA EN GENERAL EL FORMATO */
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #ff6f61, #f8b500); 
+    font-family: Arial, sans-serif;
+}
+
+/* CENTRO EL CONTENEDOR */
+.container {
+    text-align: center;
+}
+
+/* IMAGEN FORMATO */
+.image-cupon {
+    width: 250px; 
+    height: auto; 
+    border-radius: 20%;
+    box-shadow: 10px 9px 15px rgba(0, 0, 0, 0.5);
+    margin-bottom: 20px; /* Espaciado entre la imagen y el botón */
+}
+
+/* FORMATO DEL BOTON IMPRIMIR*/
+
+h3 a {
+    display: inline-block;
+    background-color: #ff6f61;
+    padding: 20px 40px;
+    color: white;
+    font-family: 'Arial', sans-serif;
+    font-size: 40px;
+    font-weight: bold;
+    border-radius: 15px;
+    text-decoration: none;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
+}
+
+h3 a:hover {
+    background-color: #f8b500;
+    transform: scale(1.1);
+    box-shadow: 8px 8px 15px rgba(0, 0, 0, 0.5);
+}
+
+/* ESTILO DE IMPRESION  Y EL MEDIA PRINT PARA NO AFECTAR AL MOMENTO DE IMPRIMIR*/
+@media print {
+    body {
+        background: linear-gradient(135deg, #ff6f61, #f8b500); 
+    }
+    .container {
+        width: 100%; /* Asegúrate de que el contenedor ocupe todo el ancho al imprimir */
+        text-align: center; 
+        margin: 0; 
+        position: relative; 
+    }
+    h3 a {
+        display: inline-block; 
+        background-color: #ff6f61; 
+        color: white; 
+        padding: 20px 40px; 
+        font-size: 40px; 
+        margin: 20px 0; 
+    }
+    .image-cupon {
+        width: 250px; /* Mantener el tamaño de la imagen al imprimir */
+    }
+    /* Ocultar el resto del contenido */
+    body * {
+        visibility: hidden; 
+    }
+    .container, h3 a, .image-cupon {
+        visibility: visible; 
+        position: absolute; 
+        left: 50%;
+        top: 50%; 
+        transform: translate(-50%, -50%); /* Centra los elementos */
+    }
+}
